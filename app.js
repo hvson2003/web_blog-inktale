@@ -9,12 +9,13 @@
  * node modules
  */
 const express = require('express');
+require('dotenv').config();
 
 /**
  * custom modules
  */
-
 const register = require('./src/routes/register_route')
+const { connectDB, disconnectDB } = require('./src/config/mongoose_config');
 
 /**
 * Initial express
@@ -31,6 +32,11 @@ app.set('view engine', 'ejs')
  */
 app.use(express.static(`${__dirname}/public`));
 
+/**
+ * parse urlencoded body
+ */
+app.use(express.urlencoded({ extended: true }));
+
 app.use('/register', register)
 
 // app.get('/',(req, res)=>{
@@ -40,6 +46,10 @@ app.use('/register', register)
 /**
  * start server
  */
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
-})
+const PORT = process.env.PORT || 3000;
+const server = app.listen(PORT, async () => {
+    console.log(`Server is running on port ${PORT}`);
+    await connectDB(process.env.MONGO_CONNECTION_URI);
+});
+
+server.on('close', async () => { await disconnectDB(); });
