@@ -1,6 +1,5 @@
 /**
  * @license Apache-2.0
- * @copyright 2024 sonhoang
 */
 
 'use strict';
@@ -53,10 +52,10 @@ const postRegister = async (req, res) => {
     } catch (error) {
         if (error.code === 11000) {
             if (error.keyPattern.email) {
-                return res.status(400).json({ message: 'This email is already associated with an account' });
+                return res.status(400).json({ message: 'This email is already associated with an account!' });
             }
             if (error.keyPattern.username) {
-                return res.status(400).json({ message: 'This username is already in use' });
+                return res.status(400).json({ message: 'This username is already in use!' });
             }
         } else {
             return res.status(400).send({ message: `Failed to register user.<br>${error.message}` });

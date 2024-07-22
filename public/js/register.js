@@ -1,6 +1,5 @@
 /**
  * @license Apache-2.0
- * @copyright 2024 sonhoang
 */
 
 'use strict';
@@ -31,7 +30,7 @@ $form.addEventListener('submit', async (event) => {
         // Should be a snackbar
         Snackbar({
             type: 'error',
-            message: 'Please ensure your password and confirm password fields contain the same value.'
+            message: 'Please ensure your password and confirm password fields contain the same value!'
         });
         return;
     }
