@@ -22,6 +22,13 @@ const generateUsername = require('../utils/generate_username_util');
  * @param {object} res - The response object.
  */
 const renderRegister = (req, res) => {
+    const { userAuthenticated } = req.session.user || {};
+
+    // Handles case when user already logged in
+    if (userAuthenticated) {
+        return res.redirect('/')
+    }
+    
     res.render('./pages/register');
 }
 

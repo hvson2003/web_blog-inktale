@@ -18,6 +18,7 @@ const MongoStore = require('connect-mongo');
 const register = require('./src/routes/register_route');
 const login = require('./src/routes/login_route');
 const { connectDB, disconnectDB } = require('./src/config/mongoose_config');
+const home = require('./src/routes/home_route');
 
 /**
 * Initial express
@@ -70,6 +71,11 @@ app.use('/register', register);
  * login page 
  */
 app.use('/login', login);
+
+/**
+ * home page
+ */
+app.use('/', home);
 
 // app.get('/',(req, res)=>{
 //     res.send('<h1>Hello world!</h1>')
