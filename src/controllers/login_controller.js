@@ -49,7 +49,7 @@ const postLogin = async (req, res) => {
 
         // Handle case where no user found with the email
         if (!currentUser) {
-            return res.status(400).json({ message: 'No user found with this email address!' });
+            return res.status(400).json({ message: 'No user found with this email address !' });
         }
 
         // Check if password is valid
@@ -57,7 +57,7 @@ const postLogin = async (req, res) => {
 
         // Handle case where password is invalid
         if (!passwordIsValid) {
-            return res.status(400).json({ message: 'Invalid password! Please ensure you entered the correct password and try again!' })
+            return res.status(400).json({ message: 'Invalid password! Please ensure you entered the correct password and try again !' })
         }
 
         // Set session userAuthenticated to true and redirect to homepage

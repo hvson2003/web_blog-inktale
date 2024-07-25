@@ -19,6 +19,7 @@ const register = require('./src/routes/register_route');
 const login = require('./src/routes/login_route');
 const { connectDB, disconnectDB } = require('./src/config/mongoose_config');
 const home = require('./src/routes/home_route');
+const createBlog = require('./src/routes/create_blog_route');
 
 /**
 * Initial express
@@ -39,6 +40,11 @@ app.use(express.static(`${__dirname}/public`));
  * parse urlencoded body
  */
 app.use(express.urlencoded({ extended: true }));
+
+/**
+ * parse json bodies
+ */
+app.use(express.json({ limit: '10MB' }));
 
 /**
  * instance for session storage
@@ -76,6 +82,11 @@ app.use('/login', login);
  * home page
  */
 app.use('/', home);
+
+/**
+ * create blog page
+ */
+app.use('/createblog', createBlog);
 
 // app.get('/',(req, res)=>{
 //     res.send('<h1>Hello world!</h1>')
