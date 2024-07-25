@@ -1,0 +1,15 @@
+/**
+ * @license Apache-2.0
+*/
+
+'use strict';
+
+/**
+ * Caculates the readinngt time for a given text.
+ * @param {string} text - The text for which reading time is to be calculated.
+ * @returns {number} - Estimated reading time in minutes.
+ */
+const AVG_READ_WPM = 200;
+const getReadingTime = (text) => Math.ceil(text.split(' ').length / AVG_READ_WPM);
+
+module.exports = getReadingTime;

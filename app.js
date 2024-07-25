@@ -44,7 +44,7 @@ app.use(express.urlencoded({ extended: true }));
 /**
  * parse json bodies
  */
-app.use(express.json({ limit: '10MB' }));
+app.use(express.json({ limit: '10mb' }));
 
 /**
  * instance for session storage

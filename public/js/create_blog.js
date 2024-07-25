@@ -38,6 +38,7 @@ $imagePreviewClear.addEventListener('click', clearImagePreview);
  */
 const $form = document.querySelector('[data-form]');
 const $publishBtn = document.querySelector('[data-publish-btn]');
+const $progressBar = document.querySelector('[data-progress-bar]');
 
 const handlePublishBlog = async function (event) {
     // Preventing default form submission behavior
@@ -69,6 +70,9 @@ const handlePublishBlog = async function (event) {
 
     // Create request body from formData
     const body = Object.fromEntries(formData.entries());
+    
+    // Show progress bar
+    $progressBar.classList.add('loading');
 
     // Sending form data to the server for create blog
     const response = await fetch(`${window.location.origin}/createblog`, {
@@ -78,6 +82,23 @@ const handlePublishBlog = async function (event) {
         },
         body: JSON.stringify(body)
     });
+
+    // Handle case where response is success
+    if (response.ok) {
+        Snackbar({ message: 'Your blog has been created !' });
+        $progressBar.classList.add('loading-end');
+        // Redirect to create blog page
+        return window.location = response.url;
+    }
+    
+    // Handle case where response is 400 (Bad Request)
+    if (response.status === 400) {
+        // Enable publish button and show error message
+        $publishBtn.removeAttribute('disabled');
+        $progressBar.classList.add('loading-end');
+        const { message } = await response.json();
+        Snackbar({ type: 'error', message });
+    }
 }
 
 $form.addEventListener('submit', handlePublishBlog);
