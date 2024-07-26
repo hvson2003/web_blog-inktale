@@ -20,6 +20,8 @@ const login = require('./src/routes/login_route');
 const { connectDB, disconnectDB } = require('./src/config/mongoose_config');
 const home = require('./src/routes/home_route');
 const createBlog = require('./src/routes/create_blog_route');
+const logout = require('./src/routes/logout_route');
+const userAuth = require('./src/middlewares/user_auth_middleware');
 
 /**
 * Initial express
@@ -69,6 +71,11 @@ app.use(session({
 }));
 
 /**
+ * home page
+ */
+app.use('/', home);
+
+/**
  * register page
  */
 app.use('/register', register);
@@ -79,9 +86,14 @@ app.use('/register', register);
 app.use('/login', login);
 
 /**
- * home page
+ * logout page 
  */
-app.use('/', home);
+app.use('/logout', logout);
+
+/** 
+ * user authorization 
+*/
+app.use(userAuth);
 
 /**
  * create blog page
@@ -91,6 +103,7 @@ app.use('/createblog', createBlog);
 // app.get('/',(req, res)=>{
 //     res.send('<h1>Hello world!</h1>')
 // })
+
 
 /**
  * start server

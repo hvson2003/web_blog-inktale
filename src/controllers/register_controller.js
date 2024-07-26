@@ -65,7 +65,7 @@ const postRegister = async (req, res) => {
                 return res.status(400).json({ message: 'This username is already in use !' });
             }
         } else {
-            return res.status(400).send({ message: `Failed to register user.<br>${error.message}` });
+            return res.status(400).send({ message: `Failed to register user !<br>${error.message}` });
         }
 
         // Log and throw error if any occurs during register process

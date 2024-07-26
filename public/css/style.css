@@ -339,7 +339,6 @@ button {
   #BASE
 \*-----------------------------------*/
 
-
 html{
   font-size: var(--fs-base);
   scroll-behavior: smooth;
@@ -374,6 +373,8 @@ button {cursor: pointer;}
   background-color: var(--outline);
   border-radius: var(--radius-full);
 }
+
+
 
 
 /*-----------------------------------*\
@@ -487,12 +488,20 @@ button {cursor: pointer;}
 }
 
 
+
+
 /*-----------------------------------*\
   #UTILITIES
 \*-----------------------------------*/
 .text-on-surface-variant { color: var(--on-surface-variant) ;}
 
+.text-on-surface { color: var(--on-surface); }
+
 .text-primary { color: var(--primary); }
+
+.icon-small { font-size: 18px; }
+
+
 
 
 /*-----------------------------------*\
@@ -576,6 +585,19 @@ span.material-symbols-rounded {
 .image-field-wrapper:has(.image-preview.show) .icon-btn {
   display: grid;
 }
+
+.img-holder {
+  aspect-ratio: 21 / 9;
+  overflow: hidden;
+  background-color: var(--outline);
+}
+
+.blog-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-2);
+}
+
 
 
 
@@ -926,12 +948,72 @@ span.material-symbols-rounded {
 }
 
 
+/**
+Card
+*/
+.card {
+  background-color: var(--surface-container-highest);
+  border-radius: var(--radius-medium);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  --state-layer-bg: var(--on-surface);
+}
+
+.card-content {
+  flex-grow: 1;
+  padding: var(--space-4);
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-block-end: var(--space-3);
+}
+
+.card-meta .trailing-text { margin-inline-start: auto; }
+
+.card .card-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border-block-start: 1px solid var(--surface-variant);
+}
+
+.card-footer .wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+
+/* 
+  Pagination
+*/
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-2);
+  margin-block-start: var(--space-4);
+}
+
+
 
 
 /*-----------------------------------*\
   #REGISTER & LOGIN PAGE
 \*-----------------------------------*/
-
 .form-section {
   min-height: 100vh;
   min-height: 100dvh;
@@ -969,6 +1051,8 @@ span.material-symbols-rounded {
 .form-card .btn { max-width: 100%; }
 
 
+
+
 /*-----------------------------------*\
   #FOOTER
 \*-----------------------------------*/
@@ -981,6 +1065,8 @@ span.material-symbols-rounded {
 }
 
 .footer .container { opacity: 0.8; }
+
+
 
 
 /*-----------------------------------*\
@@ -1028,6 +1114,8 @@ span.material-symbols-rounded {
 }
 
 
+
+
 /*-----------------------------------*\
   #RESPONSIVE
 \*-----------------------------------*/
@@ -1042,6 +1130,7 @@ span.material-symbols-rounded {
   */
   /* Text field */
   .text-field-wrapper { background-color: var(--surface-container);}
+
 
   /**
     SIGN UP & SIGN IN PAGE

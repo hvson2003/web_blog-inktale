@@ -1,6 +1,7 @@
 /**
  * @license Apache-2.0
 */
+
 'use strict';
 
 /**
@@ -11,9 +12,9 @@ const router = require('express').Router();
 /**
  * custom modules
  */
-const renderHome = require('../controllers/home_controller');
+const logout = require('../controllers/logout_controller');
 
-// GET route: Render the login form
-router.get(['/', '/page/:pageNumber'], renderHome);
+// POST route: Handles user logout
+router.post('/', logout);
 
 module.exports = router;

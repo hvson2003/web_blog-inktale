@@ -24,7 +24,6 @@ const renderLogin = (req, res) => {
     const { userAuthenticated } = req.session.user || {};
 
     // Handles case when user already logged in
-    console.log(req.session.user);
     if (userAuthenticated) {
         return res.redirect('/')
     }
