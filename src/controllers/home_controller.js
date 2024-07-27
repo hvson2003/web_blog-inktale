@@ -32,7 +32,7 @@ const renderHome = async (req, res) => {
             path: 'owner',
             select: 'name username profilePhoto'
         })
-        .sort({ createAt: 'desc' })
+        .sort({ createdAt: 'desc' })
         .limit(pagination.limit)
         .skip(pagination.skip);
         
