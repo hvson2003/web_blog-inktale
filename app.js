@@ -22,6 +22,7 @@ const home = require('./src/routes/home_route');
 const createBlog = require('./src/routes/create_blog_route');
 const logout = require('./src/routes/logout_route');
 const userAuth = require('./src/middlewares/user_auth_middleware');
+const blogDetail = require('./src/routes/blog_detail_route');
 
 /**
 * Initial express
@@ -89,6 +90,11 @@ app.use('/login', login);
  * logout page 
  */
 app.use('/logout', logout);
+
+/** 
+ * blog detail page
+*/
+app.use('/blogs', blogDetail);
 
 /** 
  * user authorization 
