@@ -12,6 +12,7 @@ const mongoose = require('mongoose');
  * custom modules
  */
 const Blog = require('../models/blog_model');
+const markdown = require('../config/markdown_it_config');
 
 /**
  * 
@@ -60,7 +61,8 @@ const renderBlogDetail = async (req, res) => {
         res.render('./pages/blog_detail', {
             sessionUser: req.session.user,
             blog,
-            ownerBlogs
+            ownerBlogs,
+            markdown
         });
 
     } catch (error) {

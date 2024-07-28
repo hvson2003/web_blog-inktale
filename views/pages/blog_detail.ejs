@@ -28,6 +28,15 @@
 <head>
     <%- include('../layouts/head', {title: `${title} | Inktale`}) %>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+    <script src="/js/script.js" defer></script>
+    <!--
+        highlight cdn link
+    -->
+    <link rel="stylesheet" media="(prefers-color-scheme:dark)" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github-dark.min.css">
+    <link rel="stylesheet" media="(prefers-color-scheme:light)" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </head>
 <body>
     <%- include('../partials/top_app_bar') %>
@@ -81,7 +90,7 @@
                             <%= title %>
                         </h1>
                         <div class="content-markdown text-on-surface-variant">
-                            <%- content %>
+                            <%- locals.markdown.render(content) %>
                         </div>
 
                     </div>
@@ -136,7 +145,5 @@
     #FOOTER
 -->
 <%- include('../layouts/footer') %>
-
-<script src="/js/script.js" defer></script>
 </body>
 </html>
