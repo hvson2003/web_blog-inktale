@@ -7,6 +7,7 @@
 /**
  * custom module
  */
+import dialog from "./dialog.js";
 
 const $reactionBtn = document.querySelector('[data-reaction-btn]');
 const $reactionNumber = document.querySelector('[data-reaction-number]');
@@ -37,8 +38,12 @@ const addReaction = async () => {
 
         // Handle case where response is 401 (Unauthorized)
         if (response.status === 401) {
-            // Show dialog for login
-            console.log('Need to login');
+            const $dialog = dialog({
+                title: 'Login to continue',
+                content: `We're a place where coders share, stay up-to-date and grow their careers.`
+            });
+
+            document.body.appendChild($dialog);
         }
 
     } catch (error) {
