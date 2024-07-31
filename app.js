@@ -2,7 +2,7 @@
  * @license Apache-2.0
 */
 
-'use-strict';
+'use strict';
 
 /**
  * node modules
@@ -23,6 +23,7 @@ const createBlog = require('./src/routes/create_blog_route');
 const logout = require('./src/routes/logout_route');
 const userAuth = require('./src/middlewares/user_auth_middleware');
 const blogDetail = require('./src/routes/blog_detail_route');
+const readingList = require('./src/routes/reading_list_route');
 
 /**
 * Initial express
@@ -105,6 +106,11 @@ app.use(userAuth);
  * create blog page
  */
 app.use('/createblog', createBlog);
+
+/**
+ * reading list page
+ */
+app.use('/readinglist', readingList);
 
 // app.get('/',(req, res)=>{
 //     res.send('<h1>Hello world!</h1>')

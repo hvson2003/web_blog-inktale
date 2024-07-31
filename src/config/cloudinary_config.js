@@ -2,7 +2,7 @@
  * @license Apache-2.0
 */
 
-'use-strict';
+'use strict';
 
 /**
  * node modules

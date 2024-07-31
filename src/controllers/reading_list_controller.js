@@ -8,6 +8,7 @@
  */
 const User = require('../models/user_model');
 const Blog = require('../models/blog_model');
+const getPagination = require('../utils/get_pagination_utils');
 
 /**
  * Add a blog post to the reading list of the logged-in user and update the total bookmark count of the blog.
@@ -96,7 +97,53 @@ const removeFromReadingList = async (req, res) => {
     }
 }
 
+/**
+ * Retrieves the reading list of the logged-in user and renders it along with pagination information.
+ * 
+ * @async
+ * @function
+ * @param {Object} req - The request object. 
+ * @param {Object} res - The response object.
+ * @throws {Error} - Throws an error if any error occurs during the process.
+ */
+const renderReadingList = async (req, res) => {
+    try {
+        // Retrieve logged client username
+        const { username } = req.session.user;
+
+        // Retrieve total amount of reading list blogs
+        const { readingList } = await User.findOne({ username })
+        .select('readingList');
+
+        // Get pagination object
+        const pagination = getPagination('/readinglist', req.params, 20, readingList.length);
+
+        // Retrieve reading list blogs based on pagination parameters
+        const readingListBlogs = await Blog.find({ _id: { $in: readingList } })
+            .select('owner createdAt readingTime title reaction totalBookmark')
+            .populate({
+                path: 'owner',
+                select: 'name username profilePhoto'
+            })
+            .limit(pagination.limit)
+            .skip(pagination.skip);
+        
+        // Render the reading list page with retrieved data
+        res.render('./pages/reading_list', {
+            sessionUser: req.session.user,
+            readingListBlogs,
+            pagination
+        });
+
+    } catch (error) {
+        // Log error
+        console.error('Error rendering reading list: ', error.message);
+        throw error;
+    }
+}
+
 module.exports = {
     addToReadingList,
-    removeFromReadingList
+    removeFromReadingList,
+    renderReadingList
 }
