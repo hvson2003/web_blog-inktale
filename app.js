@@ -24,6 +24,7 @@ const logout = require('./src/routes/logout_route');
 const userAuth = require('./src/middlewares/user_auth_middleware');
 const blogDetail = require('./src/routes/blog_detail_route');
 const readingList = require('./src/routes/reading_list_route');
+const blogUpdate = require('./src/routes/blog_update_route');
 
 /**
 * Initial express
@@ -111,6 +112,11 @@ app.use('/createblog', createBlog);
  * reading list page
  */
 app.use('/readinglist', readingList);
+
+/**
+ * blog update 
+ */
+app.use('/blogs', blogUpdate);
 
 // app.get('/',(req, res)=>{
 //     res.send('<h1>Hello world!</h1>')
