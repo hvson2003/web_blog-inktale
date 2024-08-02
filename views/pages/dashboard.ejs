@@ -10,6 +10,9 @@ const {
 <html lang="en">
 <head>
     <%- include('../layouts/head', {title: 'Dashboard | Inktale'}) %>
+
+    <script src="/js/script.js" defer></script>
+    <script type="module" src="/js/delete_blog.js"></script>
 </head>
 <body>
     <%- include('../partials/top_app_bar') %>
@@ -115,6 +118,11 @@ const {
     #FOOTER
 -->
 <%- include('../layouts/footer') %>
-<script src="/js/script.js"></script>
+
+<!--
+    #SNACKBAR
+-->
+<div class="snackbar-wrapper" data-snackbar-wrapper></div>
+
 </body>
 </html>
