@@ -25,6 +25,7 @@ const userAuth = require('./src/middlewares/user_auth_middleware');
 const blogDetail = require('./src/routes/blog_detail_route');
 const readingList = require('./src/routes/reading_list_route');
 const blogUpdate = require('./src/routes/blog_update_route');
+const profile = require('./src/routes/profile_route');
 
 /**
 * Initial express
@@ -97,6 +98,11 @@ app.use('/logout', logout);
  * blog detail page
 */
 app.use('/blogs', blogDetail);
+
+/**
+ * profile page
+ */
+app.use('/profile', profile)
 
 /** 
  * user authorization 
