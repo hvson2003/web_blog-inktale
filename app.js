@@ -26,6 +26,7 @@ const blogDetail = require('./src/routes/blog_detail_route');
 const readingList = require('./src/routes/reading_list_route');
 const blogUpdate = require('./src/routes/blog_update_route');
 const profile = require('./src/routes/profile_route');
+const dashboard = require('./src/routes/dashboard_route');
 
 /**
 * Initial express
@@ -123,6 +124,11 @@ app.use('/readinglist', readingList);
  * blog update 
  */
 app.use('/blogs', blogUpdate);
+
+/**
+ * dashboard
+ */
+app.use('/dashboard', dashboard);
 
 // app.get('/',(req, res)=>{
 //     res.send('<h1>Hello world!</h1>')
