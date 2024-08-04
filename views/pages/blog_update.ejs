@@ -16,9 +16,6 @@
 <head>
     <%- include('../layouts/head', {title: 'New blog | Inktale'}) %>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-
-    <script src="/js/script.js" defer></script>
-    <script src="/js/update_blog.js" type="module"></script>  
 </head>
 <body>
     <%- include('../partials/top_app_bar') %>
@@ -70,14 +67,17 @@
         </article>
     </main>
 
-<!--
-    #FOOTER
--->
-<%- include('../layouts/footer') %>
+    <!--
+        #FOOTER
+    -->
+    <%- include('../layouts/footer') %>
 
-<!--
-    SNACKBAR
--->
-<div class="snackbar-wrapper" data-snackbar-wrapper></div>
+    <!--
+        SNACKBAR
+    -->
+    <div class="snackbar-wrapper" data-snackbar-wrapper></div>
+
+    <script src="/js/script.js" defer></script>
+    <script src="/js/update_blog.js" type="module"></script>  
 </body>
 </html>

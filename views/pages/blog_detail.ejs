@@ -34,11 +34,6 @@
     <%- include('../layouts/head', {title: `${title} | Inktale`}) %>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
 
-    <script type="module" src="/js/reaction.js"></script>
-    <script type="module" src="/js/reading_list.js"></script>
-    <script src="/js/script.js" defer></script>
-    <script src="/js/count_visits.js" defer></script>
-
     <!--
         highlight cdn link
     -->
@@ -150,10 +145,14 @@
         </div>
     </main>
 
-<!--
-    #FOOTER
--->
-<%- include('../layouts/footer') %>
+    <!--
+        #FOOTER
+    -->
+    <%- include('../layouts/footer') %>
 
+    <script type="module" src="/js/reaction.js"></script>
+    <script type="module" src="/js/reading_list.js"></script>
+    <script src="/js/script.js" defer></script>
+    <script src="/js/count_visits.js" defer></script>
 </body>
 </html>
