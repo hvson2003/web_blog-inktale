@@ -10,7 +10,7 @@
         createdAt
     } = locals.profile;
 
-    const compressedProfilePhotoURL = profilePhotoURL?.replace('upload/', 'upload/w_200,h_200,c_auto/q_auto/f_auto');
+    const compressedProfilePhotoURL = profilePhotoURL?.replace('upload/', 'upload/w_200,h_200,c_auto/q_auto/f_auto/');
 
 %>
 
@@ -30,7 +30,7 @@
             <div class="container">
                 <div class="profile-card">
                     <figure class="profile-image img-holder">
-                        <img src="<%= profilePhotoURL %>" width="200" height="200" alt="<%= profileName %>" class="img-cover">
+                        <img src="<%= compressedProfilePhotoURL %>" width="200" height="200" alt="<%= profileName %>" class="img-cover">
                     </figure>
     
                     <div class="profile-content">
