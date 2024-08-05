@@ -28,6 +28,7 @@ const blogUpdate = require('./src/routes/blog_update_route');
 const deleteBlog = require('./src/routes/blog_delete_route');
 const profile = require('./src/routes/profile_route');
 const dashboard = require('./src/routes/dashboard_route');
+const settings = require('./src/routes/settings_route');
 
 /**
 * Initial express
@@ -130,6 +131,11 @@ app.use('/blogs', blogUpdate, deleteBlog);
  * dashboard
  */
 app.use('/dashboard', dashboard);
+
+/**
+ * settings page
+ */
+app.use('/settings', settings);
 
 // app.get('/',(req, res)=>{
 //     res.send('<h1>Hello world!</h1>')
