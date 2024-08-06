@@ -11,6 +11,7 @@ const express = require('express');
 require('dotenv').config();
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const compression = require('compression');
 
 /**
  * custom modules
@@ -34,6 +35,9 @@ const settings = require('./src/routes/settings_route');
 * Initial express
 */
 const app = express();
+
+// Compress response body
+app.use(compression());
 
 /**
  * setting view engine
