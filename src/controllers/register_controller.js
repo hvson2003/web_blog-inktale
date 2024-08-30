@@ -7,7 +7,7 @@
 /**
  * node modules
  */
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 /**
  * custom modules
