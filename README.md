@@ -1,5 +1,9 @@
 # Tạo một Trang web Blog với NodeJS & MongoDB
 
+## Link demo: [Blog Inktale](https://web-blog-inktale.onrender.com)
+  - Username: test@gmail.com
+  - Password: 12345678
+    
 ## Công nghệ đã sử dụng:
 - **HTML**: Cấu trúc các trang web
 - **CSS**: Tạo kiểu cho ứng dụng
