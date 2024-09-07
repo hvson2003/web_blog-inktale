@@ -1,18 +1,11 @@
 # Tạo một Trang web Blog với NodeJS & MongoDB
+## Người hướng dẫn: [codewithsadee](https://www.youtube.com/@codewithsadee)
 
 ## Link demo: [Blog Inktale](https://web-blog-inktale.onrender.com)
   - Email: test@gmail.com
   - Password: 12345678
-    
-## Công nghệ đã sử dụng:
-- **HTML**: Cấu trúc các trang web
-- **CSS**: Tạo kiểu cho ứng dụng
-- **JavaScript**: Thêm hành vi động
-- **Node.js**: Viết kịch bản phía máy chủ
-- **Express.js**: Xây dựng máy chủ và xử lý các tuyến (router)
-- **MongoDB**: Quản lý cơ sở dữ liệu
-- **EJS**: Công cụ tạo template cho phép nhúng JS vào HTML
 
+    
 ## Các chức năng chính:
 - **Đăng ký, đăng nhập**
 - **Trang home**: Hiển thị toàn bộ blog
@@ -30,4 +23,13 @@
   - 🔒 Thay đổi mật khẩu
   - ❌ Xóa tài khoản
 
-## Người hướng dẫn: [codewithsadee](https://www.youtube.com/@codewithsadee)
+    
+## Công nghệ đã sử dụng:
+- **HTML**: Cấu trúc các trang web
+- **CSS**: Tạo kiểu cho ứng dụng
+- **JavaScript**: Thêm hành vi động
+- **Node.js**: Viết kịch bản phía máy chủ
+- **Express.js**: Xây dựng máy chủ và xử lý các tuyến (router)
+- **MongoDB**: Quản lý cơ sở dữ liệu
+- **EJS**: Công cụ tạo template cho phép nhúng JS vào HTML
+
